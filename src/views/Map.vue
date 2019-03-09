@@ -21,6 +21,7 @@ import Feature from "ol/Feature";
 import Point from "ol/geom/Point";
 import VectorSource from "ol/source/Vector";
 import { Icon, Style, Text, Fill, Stroke } from "ol/style";
+import { Select } from "ol/interaction";
 
 import axios from "axios";
 
@@ -116,8 +117,16 @@ export default {
       zoom: 2
     });
 
+    const selectClick = new Select();
+
+    selectClick.on("select", e => {
+      const id = e.selected[0].values_.features[0].get("id");
+      this.$router.push(`/detail/${id}/`);
+    });
+
     const interactions = defaultInteractions().extend([
-      new DragRotateAndZoom()
+      new DragRotateAndZoom(),
+      selectClick
     ]);
 
     const controls = defaultControls().extend([new ScaleLine()]);
