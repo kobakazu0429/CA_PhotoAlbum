@@ -31,6 +31,6 @@
 }
 
 main {
-  margin: 0 200px;
+  margin: 0 5vw;
 }
 </style>
