@@ -1,24 +1,80 @@
 <template>
-  <div class="gallery">
-    <div class="card" v-for="image in images" :key="image.id">
-      <router-link :to="`detail/${image.id}/`">
-        <img :src="image.src" />
-      </router-link>
+  <div>
+    <div class="gallery">
+      <div class="card" v-for="image in images" :key="image.id">
+        <router-link :to="`detail/${image.id}/`">
+          <img :src="image.src" />
+        </router-link>
+      </div>
     </div>
+    <infinite-loading @infinite="infiniteHandler" :distance="1000" />
   </div>
 </template>
 
 <script>
+import InfiniteLoading from "vue-infinite-loading";
+
 export default {
   name: "Gallery",
+  components: {
+    InfiniteLoading
+  },
   data: function() {
     return {
       images: []
     };
   },
+  methods: {
+    infiniteHandler: function($state) {
+      console.log($state);
+
+      const api = "https://wfc-2019.firebaseapp.com/images/";
+
+      console.log(this);
+
+      this.axios
+        .get(api, {
+          params: {
+            limit: 10,
+            offset: this.images.length
+          }
+        })
+        .then(response => {
+          const newData = response.data.data.images.map(v => {
+            return {
+              src: v.url,
+              location: v.location,
+              id: v.id,
+              title: v.title,
+              caption: v.description,
+              postDatetime: v.postDatetime,
+              width: v.width,
+              height: v.height
+            };
+          });
+
+          if (newData.length !== 0) {
+            this.images.push(...newData);
+            $state.loaded();
+            console.log(this.state);
+          } else {
+            $state.complete();
+          }
+        })
+        .catch(err => {
+          console.log(err);
+          $state.complete();
+        });
+    }
+  },
   created() {
     this.axios
-      .get("https://wfc-2019.firebaseapp.com/images?limit=100")
+      .get("https://wfc-2019.firebaseapp.com/images", {
+        params: {
+          limit: 1,
+          offset: this.images.length
+        }
+      })
       .then(response => {
         this.images = response.data.data.images.map(v => {
           return {
