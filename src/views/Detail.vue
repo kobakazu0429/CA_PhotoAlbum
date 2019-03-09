@@ -1,14 +1,14 @@
 <template>
   <div v-if="this.image.url">
     <img :src="this.image.url" alt="" />
-    <p>url : {{this.image.url}}</p>
-    <p>location : {{this.image.location}}</p>
-    <p>id : {{this.image.id}}</p>
-    <p>title : {{this.image.title}}</p>
-    <p>description : {{this.image.description}}</p>
-    <p>postDatetime : {{this.image.postDatetime}}</p>
-    <p>width : {{this.image.width}}</p>
-    <p>height : {{this.image.height}}</p>
+    <p>url : {{ this.image.url }}</p>
+    <p>location : {{ this.image.location }}</p>
+    <p>id : {{ this.image.id }}</p>
+    <p>title : {{ this.image.title }}</p>
+    <p>description : {{ this.image.description }}</p>
+    <p>postDatetime : {{ this.image.postDatetime }}</p>
+    <p>width : {{ this.image.width }}</p>
+    <p>height : {{ this.image.height }}</p>
   </div>
 </template>
 
