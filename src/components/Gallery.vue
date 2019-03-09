@@ -1,5 +1,11 @@
 <template>
-  <lightbox :images="images"></lightbox>
+  <div class="gallery">
+    <div class="card" v-for="image in images" :key="image.id">
+      <router-link :to="`detail/${image.id}/`">
+        <img :src="image.src" />
+      </router-link>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -29,4 +35,27 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card img {
+  margin-bottom: 20px;
+  box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  transition: all 0.25s ease;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card img:hover {
+  box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.8);
+  transform: scale(1.04);
+}
+</style>
