@@ -17,7 +17,7 @@ export default {
     };
   },
   created() {
-    this.axios.get("https://wfc-2019.firebaseapp.com/images").then(response => {
+    this.axios.get("https://wfc-2019.firebaseapp.com/images?limit=100").then(response => {
       this.images = response.data.data.images.map(v => {
         return {
           src: v.url,
@@ -49,8 +49,8 @@ export default {
   box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   transition: all 0.25s ease;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
 
