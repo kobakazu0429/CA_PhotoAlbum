@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="buttons">
+      <div @click="sortASC()">日付でソート(昇順)</div>
+      <div @click="sortDESC()">日付でソート(降順)</div>
+    </div>
     <div class="gallery">
       <div class="card" v-for="image in images" :key="image.id">
         <router-link :to="`detail/${image.id}/`">
@@ -25,6 +29,20 @@ export default {
     };
   },
   methods: {
+    sortASC: function() {
+      this.images.sort(function(a, b) {
+        if (a.postDatetime < b.postDatetime) return -1;
+        if (a.postDatetime > b.postDatetime) return 1;
+        return 0;
+      });
+    },
+    sortDESC: function() {
+      this.images.sort(function(a, b) {
+        if (a.postDatetime < b.postDatetime) return 1;
+        if (a.postDatetime > b.postDatetime) return -1;
+        return 0;
+      });
+    },
     infiniteHandler: function($state) {
       const api = "https://wfc-2019.firebaseapp.com/images/";
 
@@ -87,6 +105,38 @@ export default {
 .card img:hover {
   box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.8);
   transform: scale(1.04);
+}
+
+.buttons {
+  margin: 20px 0;
+  margin-bottom: 10px;
+}
+
+.buttons div {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0;
+  text-decoration: none;
+  color: #67c5ff;
+  margin: 0 10px;
+}
+
+.buttons div:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4px;
+  top: 100%;
+  left: 0;
+  border-radius: 3px;
+  background: #67c5ff;
+  transition: 0.2s;
+}
+
+.buttons div:hover:before {
+  top: -webkit-calc(100% - 3px);
+  top: calc(100% - 3px);
 }
 
 @media screen and (max-width: 475px) {
