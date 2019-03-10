@@ -96,7 +96,8 @@ export default {
 }
 
 .imgWrapper img {
-  width: 100%;
+  width: auto;
+  max-height: 80vh;
   height: auto;
   display: block;
   margin: auto;
