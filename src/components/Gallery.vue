@@ -88,4 +88,11 @@ export default {
   box-shadow: 3px 3px 12px 0px rgba(0, 0, 0, 0.8);
   transform: scale(1.04);
 }
+
+@media screen and (max-width: 475px) {
+  .card img {
+    width: 100px;
+    height: 100px;
+  }
+}
 </style>
