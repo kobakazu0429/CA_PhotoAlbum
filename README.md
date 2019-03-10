@@ -1,4 +1,7 @@
-# hoge
+# CA_PhotoAlbum
+
+## Hosting
+https://ca-photo-album.netlify.com/
 
 ## Project setup
 ```
