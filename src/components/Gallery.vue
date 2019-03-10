@@ -52,7 +52,6 @@ export default {
           if (newData.length !== 0) {
             this.images.push(...newData);
             $state.loaded();
-            console.log(this.state);
           } else {
             $state.complete();
           }
