@@ -6,11 +6,14 @@
       </div>
 
       <div class="properties">
+        <h3>投稿者</h3>
+        <h5>{{ this.image.author }}</h5>
+
         <h3>タイトル</h3>
         <h5>{{ this.image.title }}</h5>
 
-        <h3>ユーザーネーム</h3>
-        <h5>{{ this.userName }}</h5>
+        <h3>説明</h3>
+        <h5>{{ this.image.description }}</h5>
 
         <h3>投稿日時</h3>
         <h5>{{ this.postDateTime }}</h5>
@@ -43,9 +46,6 @@ export default {
     };
   },
   computed: {
-    userName() {
-      return this.image.description.slice(0, -7);
-    },
     postDateTime() {
       return moment(this.image.postDateTime).format("YYYY/MM/DD(ddd) HH:mm:ss");
     }
