@@ -7,11 +7,7 @@ Vue.use(Router);
 export default new Router({
   mode: "history",
   routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home
-    },
+    { path: "/", name: "home", component: Home },
     {
       path: "/about",
       name: "about",
@@ -25,6 +21,11 @@ export default new Router({
       path: "/detail/:id",
       name: "detail",
       component: () => import("./views/Detail.vue")
+    },
+    {
+      path: "/map",
+      name: "map",
+      component: () => import("./views/Map.vue")
     }
   ]
 });
