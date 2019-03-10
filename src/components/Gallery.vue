@@ -26,11 +26,7 @@ export default {
   },
   methods: {
     infiniteHandler: function($state) {
-      console.log($state);
-
       const api = "https://wfc-2019.firebaseapp.com/images/";
-
-      console.log(this);
 
       this.axios
         .get(api, {
