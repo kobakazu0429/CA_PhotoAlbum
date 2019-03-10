@@ -66,7 +66,9 @@ export default {
       await data.forEach(v => {
         iconFeatures.push(
           new Feature({
-            geometry: new Point(fromLonLat([v.location.lng, v.location.lat])),
+            geometry: new Point(
+              fromLonLat([Number(v.location.lng), Number(v.location.lat)])
+            ),
             ...v
           })
         );
