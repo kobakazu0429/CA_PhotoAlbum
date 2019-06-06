@@ -4828,9 +4828,9 @@ obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
 
-ol@^5.3.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/ol/-/ol-5.3.1.tgz#cd5eaa5c7f7df8fb08e0935161e56b1d85d188f5"
+ol@^5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/ol/-/ol-5.3.3.tgz#ad39b7b485fdbae4b3e1535a0a07cc5d88b0b9b5"
   dependencies:
     pbf "3.1.0"
     pixelworks "1.1.0"
@@ -6866,10 +6866,6 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
-
-vlightbox@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/vlightbox/-/vlightbox-2.0.2.tgz#92379804b5117fc4434cb2a0467d40478d12ebe9"
 
 vm-browserify@0.0.4:
   version "0.0.4"
